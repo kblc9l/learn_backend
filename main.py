@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index_page():
-    with open('templates/site_about_firefox.html', encoding='utf8') as f:
+    with open('templates/html_table.html', encoding='utf8') as f:
         return f.read()
 
 
