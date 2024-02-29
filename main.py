@@ -1,3 +1,6 @@
+import json
+import random
+
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -51,6 +54,17 @@ def galery():
         urls.append(f'static/image/mars{len(urls) - 3}.png')
 
     return render_template('galery.html', title='Галерея с добавлением', urls=urls)
+
+
+with open('templates/crew.json', 'r') as file:
+    crew_data = json.load(file)
+    crew_members = crew_data['crew_members']
+
+
+@app.route('/member')
+def random_crew_member():
+    random_member = random.choice(crew_members)
+    return render_template('profile.html', random_crew_member=random_member)
 
 
 if __name__ == '__main__':
