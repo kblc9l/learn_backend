@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 style="text-align: center;">Оформление каюты</h2>
+{% set href_f = '../static/image/img_4.png' %}
+{% if age < 21 %}
+    {% set href_f = '../static/image/img_3.png' %}
+{% endif %}
+<table>
+    <tr>
+        <td>Цвет стен</td>
+        <td>Эмблемка</td>
+    </tr>
+    <tr>
+        <td style="width: 300px; height: 500px; background-color: {{color}}"></td>
+        <td><img src="{{href_f}}" alt="Картинка абобуса"></td>
+    </tr>
+</table>
+{% endblock %}

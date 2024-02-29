@@ -29,5 +29,13 @@ def distribution():
     l = ['Ридли Скотт', 'Энди Уир', 'Марк Уотни', 'Венката Капур', 'Тедди Сандерс', 'Шон Бил']
     return render_template('distribution.html', title='По каютам!', l=l)
 
+
+@app.route('/table')
+def table():
+    color = '#afaafa'
+    age = 22
+    return render_template('table.html', title='Цвет каюты', color=color, age=age)
+
+
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8080)
