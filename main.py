@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -35,6 +35,22 @@ def table():
     color = '#afaafa'
     age = 22
     return render_template('table.html', title='Цвет каюты', color=color, age=age)
+
+
+urls = ['static/image/mars1.jpg',
+        'static/image/mars2.jpg',
+        'static/image/mars3.jpg']
+
+
+@app.route('/galery', methods=['GET', 'POST'])
+def galery():
+    if request.method == 'POST':
+        f = request.files['file']
+        with open(f'static/image/mars{len(urls) - 3}.png', 'wb') as img_file:
+            img_file.write(f.read())
+        urls.append(f'static/image/mars{len(urls) - 3}.png')
+
+    return render_template('galery.html', title='Галерея с добавлением', urls=urls)
 
 
 if __name__ == '__main__':
