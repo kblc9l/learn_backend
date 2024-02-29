@@ -1,16 +1,28 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
+@app.route('/list_prof/<typeL>')
+def list_prof(typeL: str):
+    profs = ''' менеджер по продажам,
+                продавец-консультант,
+                водитель,
+                бухгалтер,
+                программист, разработчик программного обеспечения,
+                врач,
+                инженер,
+                повар,
+                упаковщик и комплектовщик,
+                слесарь,
+                сантехник'''.strip().split(',')
+    return render_template('prof_list.html', title='Список профессий для полёта на Марс', profs=profs, typeL=typeL, )
+
+
 @app.route('/')
-def index_page():
-    with open('templates/html_table.html', encoding='utf8') as f:
-        return f.read()
+def practice():
+    return render_template('my_first_template.html')
 
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8080)
-
-
-

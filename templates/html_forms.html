@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8"/>
+    <title>Form structure: Task 1</title>
+    <style>
+        body {
+          background-color: #fff;
+          color: #333;
+          font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+          padding: 1em;
+          margin: 0;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+<form method="post" enctype="multipart/form-data">
+    <div>
+        <label for="file">Choose a file</label>
+        <input type="file" id="file" name="myFile"/>
+    </div>
+    <div>
+        <button>Send the file</button>
+    </div>
+</form>
+</body>
+
+</html>
