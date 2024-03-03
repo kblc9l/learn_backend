@@ -22,9 +22,15 @@ def list_prof(typeL: str):
     return render_template('prof_list.html', title='Список профессий для полёта на Марс', profs=profs, typeL=typeL, )
 
 
-# @app.route('/')
-# def practice():
-#     return render_template('my_first_template.html')
+@app.route('/', methods=['GET', 'POST'])
+def practice():
+    if request.method == 'POST':
+        print(request.form['name'])
+        print(request.form['people'])
+        print(request.form['date'])
+        print(request.form['message '])
+
+    return render_template('my_first_template.html')
 
 
 @app.route('/distribution')
